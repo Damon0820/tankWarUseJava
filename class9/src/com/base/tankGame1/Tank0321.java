@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Vector;
 
 public class Tank0321 extends JFrame {
     MyPanel mp = null;
@@ -24,9 +25,16 @@ public class Tank0321 extends JFrame {
 class MyPanel extends JPanel implements KeyListener {
 
     Hero hero = null;
+    int enSize = 3;
+
+    Vector<EnemyTank> ets = new Vector<EnemyTank>();
 
     public MyPanel() {
-        hero = new Hero(10, 10);
+        hero = new Hero(100, 200);
+        for (int i = 0; i < enSize; i++) {
+            EnemyTank et = new EnemyTank((i + 1) * 50, 0);
+            ets.add(et);
+        }
     }
 
     @Override
@@ -34,6 +42,10 @@ class MyPanel extends JPanel implements KeyListener {
         super.paint(g);
         g.fillRect(0, 0, 400, 300);
         this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 1);
+        for (int i = 0; i < ets.size(); i++) {
+            EnemyTank et = ets.get(i);
+            this.drawTank(et.getX(), et.getY(), g, et.getDirect(), 0);
+        }
 //        this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 0);
 //        this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 1);
 //        this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 0);
@@ -134,88 +146,3 @@ class MyPanel extends JPanel implements KeyListener {
     }
 }
 
-class Tank {
-
-    int x = 0;
-    int y = 0;
-    int speed = 2;
-    int direct = 0;
-    // 宽20，长30
-    int sizeX = 20;
-    int sizeY = 30;
-
-    public Tank(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getDirect() {
-        return direct;
-    }
-
-    public void setDirect(int direct) {
-        this.direct = direct;
-    }
-
-    public int getSizeX() {
-        return sizeX;
-    }
-
-    public void setSizeX(int sizeX) {
-        this.sizeX = sizeX;
-    }
-
-    public int getSizeY() {
-        return sizeY;
-    }
-
-    public void setSizeY(int sizeY) {
-        this.sizeY = sizeY;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public void moveUp() {
-        this.y = this.y - this.speed;
-    }
-
-    public void moveDown() {
-        this.y = this.y + this.speed;
-    }
-
-    public void moveLeft() {
-        this.x = this.x - this.speed;
-    }
-
-    public void moveRight() {
-        this.x = this.x + this.speed;
-    }
-}
-
-class Hero extends Tank {
-    public Hero(int x, int y) {
-        super(x, y);
-    }
-}
