@@ -14,6 +14,8 @@ public class Tank0321 extends JFrame {
 
     public Tank0321() {
         mp = new MyPanel();
+        Thread thread = new Thread(mp);
+        thread.start();
         this.add(mp);
         this.addKeyListener(mp);
         this.setSize(400, 300);
@@ -22,12 +24,15 @@ public class Tank0321 extends JFrame {
     }
 }
 
-class MyPanel extends JPanel implements KeyListener {
+class MyPanel extends JPanel implements KeyListener, Runnable {
 
     Hero hero = null;
+    // 敌人坦克的初始数量
     int enSize = 3;
-
+    // 敌人坦克的集合
     Vector<EnemyTank> ets = new Vector<EnemyTank>();
+    // 子弹
+    HeroShot heroShot = null;
 
     public MyPanel() {
         hero = new Hero(100, 200);
@@ -42,6 +47,9 @@ class MyPanel extends JPanel implements KeyListener {
         super.paint(g);
         g.fillRect(0, 0, 400, 300);
         this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 1);
+        if (heroShot != null) {
+            this.drawShot(heroShot.getX(), heroShot.getY(), g, heroShot.getDirect(), 1);
+        }
         for (int i = 0; i < ets.size(); i++) {
             EnemyTank et = ets.get(i);
             this.drawTank(et.getX(), et.getY(), g, et.getDirect(), 0);
@@ -105,6 +113,43 @@ class MyPanel extends JPanel implements KeyListener {
 
     }
 
+    // 画子弹
+    public void drawShot(int x, int y, Graphics g, int direct, int type) {
+        switch (type) {
+            case 0 :
+                g.setColor(Color.CYAN);
+                break;
+            case 1 :
+                g.setColor(Color.yellow);
+                break;
+        }
+
+//        System.out.println('x' + x);
+//        System.out.println('y' + x);
+
+        switch (direct) {
+            // 上
+            case 0:
+                g.fillOval(x + 10, y, 5, 5);
+                break;
+            // 下
+            case 1:
+                g.fillOval(x + 10, y + 30, 5, 5);
+                break;
+            // 左
+            case 2:
+                g.fillOval(x, y + 10, 1, 1);
+
+                break;
+            // 右
+            case 3:
+                g.fillOval(x + 30, y + 10, 1, 1);
+
+                break;
+        }
+
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 //        System.out.println("01");
@@ -113,28 +158,46 @@ class MyPanel extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
 //        System.out.println('press key');
-        System.out.println("11");
-        int offset = 5;
+//        System.out.println("11");
 
+        // 移动坦克
         switch (e.getKeyCode()){
             case KeyEvent.VK_UP:
+            case KeyEvent.VK_W:
+
                 hero.moveUp();
                 hero.setDirect(0);
                 break;
             case KeyEvent.VK_DOWN:
+            case KeyEvent.VK_S:
+
                 hero.moveDown();
                 hero.setDirect(1);
 
                 break;
             case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_A:
+
                 hero.moveLeft();
                 hero.setDirect(2);
 
                 break;
             case KeyEvent.VK_RIGHT:
+            case KeyEvent.VK_D:
+
                 hero.moveRight();
                 hero.setDirect(3);
+                break;
+        }
 
+        // 发射子弹
+        switch (e.getKeyCode()){
+            case KeyEvent.VK_J:
+                heroShot = new HeroShot(hero.getX(), hero.getY());
+//                hero.emitShot(heroShot);
+                heroShot.setDirect(hero.direct);
+                Thread thread = new Thread(heroShot);
+                thread.start();
                 break;
         }
         this.repaint();
@@ -143,6 +206,20 @@ class MyPanel extends JPanel implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 //        System.out.println("31");
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+//            System.out.println(11111);
+            repaint();
+        }
+
     }
 }
 

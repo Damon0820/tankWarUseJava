@@ -6,6 +6,8 @@ package com.base.tankGame1;
 //    }
 //}
 
+import java.awt.*;
+
 class Tank {
 
     int x = 0;
@@ -16,6 +18,7 @@ class Tank {
     // 宽20，长30
     int sizeX = 20;
     int sizeY = 30;
+    HeroShot heroShot = null;
 
     public Tank(int x, int y) {
         this.x = x;
@@ -93,6 +96,45 @@ class Tank {
     public void moveRight() {
         this.x = this.x + this.speed;
     }
+
+    // 发射子弹
+    public void emitShot(Shot shot) {
+//        switch (type) {
+//            case 0 :
+//                heroShot.setColor(Color.CYAN);
+//                break;
+//            case 1 :
+//                heroShot.setColor(Color.yellow);
+//                break;
+//        }
+        shot = shot;
+        switch (direct) {
+            // 上
+            case 0:
+                x = x + 10;
+                break;
+            // 下
+            case 1:
+                x = x + 10;
+                y = y + 30;
+                break;
+            // 左
+            case 2:
+                y = y + 10;
+                break;
+            // 右
+            case 3:
+                x = x + 30;
+                y = y + 10;
+                break;
+        }
+//        heroShot = new HeroShot(x, y);
+//        heroShot.setDirect(direct);
+//        Thread thread = new Thread(heroShot);
+//        thread.start();
+//        heroShot.goEmit();
+
+    }
 }
 
 /**
@@ -113,3 +155,113 @@ class EnemyTank extends Tank {
         super(x, y);
     }
 }
+
+/**
+ * 子弹
+ */
+class Shot implements Runnable {
+    int x;
+    int y;
+    int direct;
+    int color;
+    int speed = 1;
+    Boolean isLive = false;
+
+    public Shot(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getDirect() {
+        return direct;
+    }
+
+    public void setDirect(int direct) {
+        this.direct = direct;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public Boolean getIsLive() {
+        return isLive;
+    }
+
+    public void setIsLive(Boolean isLive) {
+        this.isLive = isLive;
+    }
+
+    // 发射子弹
+    public void goEmit() {
+
+        switch (direct) {
+            // 上
+            case 0:
+                y -= speed;
+                break;
+            // 下
+            case 1:
+                y += speed;
+                break;
+            // 左
+            case 2:
+                x -= speed;
+                break;
+            // 右
+            case 3:
+                x += speed;
+                break;
+        }
+        System.out.println("x" + x);
+        System.out.println('y' + y);
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            this.goEmit();
+        }
+//        goEmit();
+    }
+}
+
+class HeroShot extends Shot {
+    public HeroShot(int x, int y) {
+        super(x, y);
+    }
+}
+
