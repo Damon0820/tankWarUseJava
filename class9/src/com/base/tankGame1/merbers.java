@@ -7,6 +7,7 @@ package com.base.tankGame1;
 //}
 
 import java.awt.*;
+import java.util.Vector;
 
 class Tank {
 
@@ -103,6 +104,7 @@ class Tank {
  */
 class Hero extends Tank {
     HeroShot heroShot = null;
+    Vector<HeroShot> heroShots = new Vector<HeroShot>();
     public Hero(int x, int y) {
         super(x, y);
         super.setSpeed(6);
@@ -110,16 +112,10 @@ class Hero extends Tank {
 
     // 发射子弹
     public void shotEnemy() {
-//        switch (type) {
-//            case 0 :
-//                heroShot.setColor(Color.CYAN);
-//                break;
-//            case 1 :
-//                heroShot.setColor(Color.yellow);
-//                break;
-//        }
         int shotX = 0;
         int shotY = 0;
+        // 最多5发子弹
+        if (this.heroShots.size() >= 5) return;
         switch (direct) {
             // 上
             case 0:
@@ -146,7 +142,7 @@ class Hero extends Tank {
         heroShot.setDirect(direct);
         Thread thread = new Thread(heroShot);
         thread.start();
-
+        heroShots.add(heroShot);
     }
 }
 
@@ -159,6 +155,8 @@ class EnemyTank extends Tank {
     }
 }
 
+
+
 /**
  * 子弹
  */
@@ -168,7 +166,7 @@ class Shot implements Runnable {
     int direct;
     int color;
     int speed = 1;
-    Boolean isLive = false;
+    Boolean isLive = true;
 
     public Shot(int x, int y) {
         this.x = x;
@@ -251,6 +249,7 @@ class Shot implements Runnable {
             }
             // 子弹消失到边界
             if (x < 0 || x > 400 || y < 0 || y > 300) {
+                this.isLive = false;
                 break;
             }
 //            System.out.println(x);
@@ -258,10 +257,13 @@ class Shot implements Runnable {
     }
 }
 
+/**
+ * 我的子弹
+ */
 class HeroShot extends Shot {
     public HeroShot(int x, int y) {
         super(x, y);
-        super.setSpeed(2);
+        super.setSpeed(1);
     }
 }
 

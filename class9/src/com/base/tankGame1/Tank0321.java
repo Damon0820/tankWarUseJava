@@ -47,9 +47,25 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
         super.paint(g);
         g.fillRect(0, 0, 400, 300);
         this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 1);
-        if (hero.heroShot != null) {
-            this.drawShot(hero.heroShot.getX(), hero.heroShot.getY(), g, hero.heroShot.getDirect(), 1);
+
+
+        for (int i = 0; i < hero.heroShots.size(); i++) {
+            HeroShot heroShot = hero.heroShots.get(i);
+            if (heroShot.isLive) {
+                this.drawShot(heroShot.getX(), heroShot.getY(), g, heroShot.getDirect(), 1);
+                // 是否击中敌人
+                for (int j = 0; i < this.ets.size(); j++) {
+                    EnemyTank enemyTank = this.ets.get(i);
+                    Boolean isHit = this.hitTank(heroShot, enemyTank);
+                    if (isHit) {
+                        System.out.println(1111);
+                    }
+                }
+            } else {
+                hero.heroShots.remove(heroShot);
+            }
         }
+
         for (int i = 0; i < ets.size(); i++) {
             EnemyTank et = ets.get(i);
             this.drawTank(et.getX(), et.getY(), g, et.getDirect(), 0);
@@ -57,6 +73,33 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
 //        this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 0);
 //        this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 1);
 //        this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 0);
+    }
+
+    // 判断是否击中敌人
+    public Boolean hitTank(Shot shot, Tank tank) {
+        int tankX = tank.getX();
+        int tankY = tank.getY();
+        int shotX = shot.getX();
+        int shotY = shot.getY();
+        int tankX2 = 0;
+        int tankY2 = 0;
+        switch (tank.direct) {
+            case 0:
+            case 1:
+                tankX2 = tankX + 20;
+                tankY2 = tankY + 30;
+                break;
+            case 2:
+            case 3:
+                tankX2 = tankX + 30;
+                tankY2 = tankY + 20;
+                break;
+        }
+        if (tankX <= shotX && shotX <= tankY2 && tankY <= shotY && shotY <= tankY2) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // 画坦克
