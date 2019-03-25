@@ -47,8 +47,8 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
         super.paint(g);
         g.fillRect(0, 0, 400, 300);
         this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 1);
-        if (heroShot != null) {
-            this.drawShot(heroShot.getX(), heroShot.getY(), g, heroShot.getDirect(), 1);
+        if (hero.heroShot != null) {
+            this.drawShot(hero.heroShot.getX(), hero.heroShot.getY(), g, hero.heroShot.getDirect(), 1);
         }
         for (int i = 0; i < ets.size(); i++) {
             EnemyTank et = ets.get(i);
@@ -123,30 +123,7 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
                 g.setColor(Color.yellow);
                 break;
         }
-
-//        System.out.println('x' + x);
-//        System.out.println('y' + x);
-
-        switch (direct) {
-            // 上
-            case 0:
-                g.fillOval(x + 10, y, 5, 5);
-                break;
-            // 下
-            case 1:
-                g.fillOval(x + 10, y + 30, 5, 5);
-                break;
-            // 左
-            case 2:
-                g.fillOval(x, y + 10, 1, 1);
-
-                break;
-            // 右
-            case 3:
-                g.fillOval(x + 30, y + 10, 1, 1);
-
-                break;
-        }
+        g.fillOval(x, y, 4, 4);
 
     }
 
@@ -193,11 +170,12 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
         // 发射子弹
         switch (e.getKeyCode()){
             case KeyEvent.VK_J:
-                heroShot = new HeroShot(hero.getX(), hero.getY());
+                this.hero.shotEnemy();
+//                heroShot = new HeroShot(hero.getX(), hero.getY());
 //                hero.emitShot(heroShot);
-                heroShot.setDirect(hero.direct);
-                Thread thread = new Thread(heroShot);
-                thread.start();
+//                heroShot.setDirect(hero.direct);
+//                Thread thread = new Thread(heroShot);
+//                thread.start();
                 break;
         }
         this.repaint();
@@ -212,7 +190,7 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(15);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

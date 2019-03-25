@@ -18,7 +18,6 @@ class Tank {
     // 宽20，长30
     int sizeX = 20;
     int sizeY = 30;
-    HeroShot heroShot = null;
 
     public Tank(int x, int y) {
         this.x = x;
@@ -97,8 +96,20 @@ class Tank {
         this.x = this.x + this.speed;
     }
 
+}
+
+/**
+ * 我的坦克
+ */
+class Hero extends Tank {
+    HeroShot heroShot = null;
+    public Hero(int x, int y) {
+        super(x, y);
+        super.setSpeed(6);
+    }
+
     // 发射子弹
-    public void emitShot(Shot shot) {
+    public void shotEnemy() {
 //        switch (type) {
 //            case 0 :
 //                heroShot.setColor(Color.CYAN);
@@ -107,43 +118,35 @@ class Tank {
 //                heroShot.setColor(Color.yellow);
 //                break;
 //        }
-        shot = shot;
+        int shotX = 0;
+        int shotY = 0;
         switch (direct) {
             // 上
             case 0:
-                x = x + 10;
+                shotX = x + 10;
+                shotY = y;
                 break;
             // 下
             case 1:
-                x = x + 10;
-                y = y + 30;
+                shotX = x + 10;
+                shotY = y + 30;
                 break;
             // 左
             case 2:
-                y = y + 10;
+                shotX = x;
+                shotY = y + 10;
                 break;
             // 右
             case 3:
-                x = x + 30;
-                y = y + 10;
+                shotX = x + 30;
+                shotY = y + 10;
                 break;
         }
-//        heroShot = new HeroShot(x, y);
-//        heroShot.setDirect(direct);
-//        Thread thread = new Thread(heroShot);
-//        thread.start();
-//        heroShot.goEmit();
+        heroShot = new HeroShot(shotX, shotY);
+        heroShot.setDirect(direct);
+        Thread thread = new Thread(heroShot);
+        thread.start();
 
-    }
-}
-
-/**
- * 我的坦克
- */
-class Hero extends Tank {
-    public Hero(int x, int y) {
-        super(x, y);
-        super.setSpeed(6);
     }
 }
 
@@ -220,48 +223,45 @@ class Shot implements Runnable {
         this.isLive = isLive;
     }
 
-    // 发射子弹
-    public void goEmit() {
-
-        switch (direct) {
-            // 上
-            case 0:
-                y -= speed;
-                break;
-            // 下
-            case 1:
-                y += speed;
-                break;
-            // 左
-            case 2:
-                x -= speed;
-                break;
-            // 右
-            case 3:
-                x += speed;
-                break;
-        }
-        System.out.println("x" + x);
-        System.out.println('y' + y);
-    }
-
     @Override
     public void run() {
         while (true) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(15);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            this.goEmit();
+            switch (direct) {
+                // 上
+                case 0:
+                    y -= speed;
+                    break;
+                // 下
+                case 1:
+                    y += speed;
+                    break;
+                // 左
+                case 2:
+                    x -= speed;
+                    break;
+                // 右
+                case 3:
+                    x += speed;
+                    break;
+            }
+            // 子弹消失到边界
+            if (x < 0 || x > 400 || y < 0 || y > 300) {
+                break;
+            }
+//            System.out.println(x);
         }
-//        goEmit();
     }
 }
 
 class HeroShot extends Shot {
     public HeroShot(int x, int y) {
         super(x, y);
+        super.setSpeed(2);
     }
 }
 
