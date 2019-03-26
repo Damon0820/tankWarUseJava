@@ -54,11 +54,13 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
             if (heroShot.isLive) {
                 this.drawShot(heroShot.getX(), heroShot.getY(), g, heroShot.getDirect(), 1);
                 // 是否击中敌人
-                for (int j = 0; i < this.ets.size(); j++) {
-                    EnemyTank enemyTank = this.ets.get(i);
+                for (int j = 0; j < this.ets.size(); j++) {
+                    EnemyTank enemyTank = this.ets.get(j);
                     Boolean isHit = this.hitTank(heroShot, enemyTank);
                     if (isHit) {
                         System.out.println(1111);
+                        enemyTank.destroy();
+                        this.ets.remove(enemyTank);
                     }
                 }
             } else {
@@ -95,7 +97,13 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
                 tankY2 = tankY + 20;
                 break;
         }
-        if (tankX <= shotX && shotX <= tankY2 && tankY <= shotY && shotY <= tankY2) {
+//        System.out.println(tankX);
+//        System.out.println(tankY);
+//        System.out.println(shotX);
+//        System.out.println(shotX);
+//        System.out.println(shotX);
+//        System.out.println(shotX);
+        if (tankX <= shotX && shotX <= tankX2 && tankY <= shotY && shotY <= tankY2) {
             return true;
         } else {
             return false;

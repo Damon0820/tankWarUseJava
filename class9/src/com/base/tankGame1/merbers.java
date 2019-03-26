@@ -16,6 +16,7 @@ class Tank {
     int speed = 2;
     int direct = 0;
     int color;
+    Boolean isLive = true;
     // 宽20，长30
     int sizeX = 20;
     int sizeY = 30;
@@ -95,6 +96,18 @@ class Tank {
 
     public void moveRight() {
         this.x = this.x + this.speed;
+    }
+
+    public Boolean getLive() {
+        return isLive;
+    }
+
+    public void setLive(Boolean live) {
+        isLive = live;
+    }
+
+    public void destroy() {
+        isLive = false;
     }
 
 }
