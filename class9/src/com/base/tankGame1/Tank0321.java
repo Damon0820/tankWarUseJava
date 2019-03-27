@@ -1,9 +1,13 @@
 package com.base.tankGame1;
 
+import javafx.scene.layout.Pane;
+import sun.awt.image.ToolkitImage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.List;
 import java.util.Vector;
 
 public class Tank0321 extends JFrame {
@@ -33,6 +37,13 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
     Vector<EnemyTank> ets = new Vector<EnemyTank>();
     // 子弹
     HeroShot heroShot = null;
+    // 三张图片，组成爆炸效果💥
+    Image image1 = null;
+    Image image2 = null;
+    Image image3 = null;
+    // 炸弹
+    Vector<Bomb> bombs = new Vector<Bomb>();
+
 
     public MyPanel() {
         hero = new Hero(100, 200);
@@ -40,27 +51,34 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
             EnemyTank et = new EnemyTank((i + 1) * 50, 0);
             ets.add(et);
         }
+        image1 = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/bomb_1.gif"));
+        image2 = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/bomb_2.gif"));
+        image3 = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/bomb_3.gif"));
     }
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
         g.fillRect(0, 0, 400, 300);
+        // 画我方tank
         this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 1);
 
-
         for (int i = 0; i < hero.heroShots.size(); i++) {
+            // 画我方子弹
             HeroShot heroShot = hero.heroShots.get(i);
             if (heroShot.isLive) {
                 this.drawShot(heroShot.getX(), heroShot.getY(), g, heroShot.getDirect(), 1);
                 // 是否击中敌人
                 for (int j = 0; j < this.ets.size(); j++) {
                     EnemyTank enemyTank = this.ets.get(j);
+                    if (!enemyTank.isLive) continue;
                     Boolean isHit = this.hitTank(heroShot, enemyTank);
                     if (isHit) {
                         System.out.println(1111);
-                        enemyTank.destroy();
+                        enemyTank.setIsLive(false);
+                        heroShot.setIsLive(false);
                         this.ets.remove(enemyTank);
+                        this.bombs.add(new Bomb(enemyTank.getX(), enemyTank.getY()));
                     }
                 }
             } else {
@@ -68,9 +86,27 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
             }
         }
 
+        // 画敌方tank
         for (int i = 0; i < ets.size(); i++) {
             EnemyTank et = ets.get(i);
             this.drawTank(et.getX(), et.getY(), g, et.getDirect(), 0);
+        }
+
+        // 画出炸弹
+        for (int i = 0; i < bombs.size(); i++) {
+            Bomb bomb = bombs.get(i);
+            if (bomb.life > 6) {
+                g.drawImage(image1, bomb.getX(), bomb.getY(), 30, 30, this);
+            } else if (bomb.life > 3) {
+                g.drawImage(image2, bomb.getX(), bomb.getY(), 30, 30, this);
+            } else {
+                g.drawImage(image3, bomb.getX(), bomb.getY(), 30, 30, this);
+            }
+            bomb.lifeDown();
+            if (!bomb.isLive) {
+                bombs.remove(bomb);
+            }
+
         }
 //        this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 0);
 //        this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 1);

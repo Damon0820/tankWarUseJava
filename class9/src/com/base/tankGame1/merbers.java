@@ -98,18 +98,13 @@ class Tank {
         this.x = this.x + this.speed;
     }
 
-    public Boolean getLive() {
+    public Boolean getIsLive() {
         return isLive;
     }
 
-    public void setLive(Boolean live) {
+    public void setIsLive(Boolean live) {
         isLive = live;
     }
-
-    public void destroy() {
-        isLive = false;
-    }
-
 }
 
 /**
@@ -277,6 +272,63 @@ class HeroShot extends Shot {
     public HeroShot(int x, int y) {
         super(x, y);
         super.setSpeed(1);
+    }
+}
+
+
+/**
+ * 炸弹
+ */
+class Bomb {
+    int x, y;
+    // 生命
+    int life = 9;
+    Boolean isLive = true;
+
+    public Bomb(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public Boolean getLive() {
+        return isLive;
+    }
+
+    public void setLive(Boolean live) {
+        isLive = live;
+    }
+
+    // 减少生命
+    public void lifeDown() {
+        if (life > 0) {
+            life--;
+        } else {
+            isLive = false;
+        }
     }
 }
 
