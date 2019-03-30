@@ -5,13 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java" beforeDir="false" afterPath="$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/EnemyTank.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/EnemyTank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/HeroShot.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/HeroShot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/MyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/MyPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Shot.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Shot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Tank0321.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Tank0321.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,35 +31,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="104" selection-start-line="104" selection-end-line="104" />
+            <state relative-caret-position="29">
+              <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#799#810#0" expanded="true" />
-                <element signature="e#1083#1089#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="325" column="24" selection-start-line="325" selection-start-column="16" selection-end-line="325" selection-end-column="24" />
+            <state relative-caret-position="279">
+              <caret line="205" selection-start-line="205" selection-end-line="210" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1592#1593#0" expanded="true" />
-                <element signature="e#1621#1622#0" expanded="true" />
-                <element signature="e#1662#1663#0" expanded="true" />
-                <element signature="e#1691#1692#0" expanded="true" />
-                <element signature="e#3046#3047#0" expanded="true" />
-                <element signature="e#3072#3073#0" expanded="true" />
+                <element signature="e#709#710#0" expanded="true" />
+                <element signature="e#745#746#0" expanded="true" />
                 <element signature="e#3152#3153#0" expanded="true" />
-                <element signature="e#3178#3179#0" expanded="true" />
+                <element signature="e#3176#3177#0" expanded="true" />
                 <element signature="e#5100#5101#0" expanded="true" />
                 <element signature="e#5124#5125#0" expanded="true" />
                 <element signature="e#5155#5156#0" expanded="true" />
@@ -83,6 +70,7 @@
                 <element signature="e#5472#5473#0" expanded="true" />
                 <element signature="e#5513#5514#0" expanded="true" />
                 <element signature="e#5542#5543#0" expanded="true" />
+                <marker date="1553958560621" expanded="true" signature="3291:3350" ph="..." />
               </folding>
             </state>
           </provider>
@@ -124,8 +112,8 @@
         <option value="$PROJECT_DIR$/class9/src/com.base/demo1.java" />
         <option value="$PROJECT_DIR$/class9/src/com/base/demo0320/demo1.java" />
         <option value="$PROJECT_DIR$/class9/src/com/base/demo0320/Demo1.java" />
-        <option value="$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java" />
         <option value="$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java" />
+        <option value="$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java" />
       </list>
     </option>
   </component>
@@ -149,6 +137,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,14 +168,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553701705275" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553958652231" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -255,7 +243,8 @@
       <workItem from="1553329629461" duration="4508000" />
       <workItem from="1553409633293" duration="10943000" />
       <workItem from="1553487481925" duration="2392000" />
-      <workItem from="1553605361633" duration="4226000" />
+      <workItem from="1553605361633" duration="4459000" />
+      <workItem from="1553956849721" duration="1613000" />
     </task>
     <task id="LOCAL-00001" summary="画出地方坦克">
       <created>1553419674739</created>
@@ -271,11 +260,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553527359902</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="子弹爆炸💥效果">
+      <created>1553701737922</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1553701737922</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34632000" />
+    <option name="totallyTimeSpent" value="36478000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -287,10 +283,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="731" extended-state="1" />
+    <frame x="0" y="23" width="1280" height="731" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1987076" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20193861" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -299,13 +295,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.43348983" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.42410016" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26760563" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.42410016" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32949308" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.53521127" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.23474178" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.07355242" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -368,19 +364,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="画出地方坦克" />
     <MESSAGE value="1。可发射多颗子弹&#10;2。击中坦克的判断ing" />
-    <option name="LAST_COMMIT_MESSAGE" value="1。可发射多颗子弹&#10;2。击中坦克的判断ing" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java</url>
-          <line>96</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="子弹爆炸效果" />
+    <option name="LAST_COMMIT_MESSAGE" value="子弹爆炸效果" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -423,20 +408,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java">
+    <entry file="file://$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="325" column="24" selection-start-line="325" selection-start-column="16" selection-end-line="325" selection-end-column="24" />
+        <state relative-caret-position="29">
+          <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1592#1593#0" expanded="true" />
-            <element signature="e#1621#1622#0" expanded="true" />
-            <element signature="e#1662#1663#0" expanded="true" />
-            <element signature="e#1691#1692#0" expanded="true" />
-            <element signature="e#3046#3047#0" expanded="true" />
-            <element signature="e#3072#3073#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="205" selection-start-line="205" selection-end-line="210" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
             <element signature="e#3152#3153#0" expanded="true" />
-            <element signature="e#3178#3179#0" expanded="true" />
+            <element signature="e#3176#3177#0" expanded="true" />
             <element signature="e#5100#5101#0" expanded="true" />
             <element signature="e#5124#5125#0" expanded="true" />
             <element signature="e#5155#5156#0" expanded="true" />
@@ -453,18 +444,7 @@
             <element signature="e#5472#5473#0" expanded="true" />
             <element signature="e#5513#5514#0" expanded="true" />
             <element signature="e#5542#5543#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#799#810#0" expanded="true" />
-            <element signature="e#1083#1089#0" expanded="true" />
+            <marker date="1553958560621" expanded="true" signature="3291:3350" ph="..." />
           </folding>
         </state>
       </provider>

@@ -157,9 +157,64 @@ class Hero extends Tank {
 /**
  * 敌人的坦克
  */
-class EnemyTank extends Tank {
+class EnemyTank extends Tank implements Runnable {
+    int straightTimes = 5;
     public EnemyTank(int x, int y) {
         super(x, y);
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                Thread.sleep(40);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            switch (direct) {
+                // 上
+                case 0:
+                    y -= speed;
+                    if (y < 0) {
+                        y = 0;
+                    }
+                    break;
+                // 下
+                case 1:
+                    y += speed;
+                    if (y > 270) {
+                        y = 270;
+                    }
+                    break;
+                // 左
+                case 2:
+                    x -= speed;
+                    if (x < 0) {
+                        x = 0;
+                    }
+                    break;
+                // 右
+                case 3:
+                    x += speed;
+                    if (x > 370) {
+                        x = 370;
+                    }
+                    break;
+            }
+
+            // 随机一个方向，随机步数
+            if (this.straightTimes > 0 ){
+                this.straightTimes--;
+            } else {
+                direct = (int) (Math.random() * 4);
+                this.straightTimes = (int) (Math.random() * 15 + 3);
+            }
+
+            //
+            if (!isLive) {
+                break;
+            }
+        }
     }
 }
 

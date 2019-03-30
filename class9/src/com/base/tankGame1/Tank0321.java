@@ -49,6 +49,9 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
         hero = new Hero(100, 200);
         for (int i = 0; i < enSize; i++) {
             EnemyTank et = new EnemyTank((i + 1) * 50, 0);
+            et.setDirect(1);
+            Thread thread = new Thread(et);
+            thread.start();
             ets.add(et);
         }
         image1 = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/bomb_1.gif"));
