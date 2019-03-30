@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4085fa6c-94d2-43d9-9884-24fd7c3f1faa" name="Default Changelist" comment="">
+    <list default="true" id="4085fa6c-94d2-43d9-9884-24fd7c3f1faa" name="Default Changelist" comment="1。敌方tank自由移动&#10;2。敌方tank移动边界判断">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java" beforeDir="false" afterPath="$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Bomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Bomb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/EnemyTank.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/EnemyTank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/HeroShot.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/HeroShot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/MyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/MyPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Shot.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/Shot.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+            <state relative-caret-position="72">
+              <caret line="86" column="20" lean-forward="true" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,12 +51,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="205" selection-start-line="205" selection-end-line="210" selection-end-column="13" />
+            <state relative-caret-position="243">
+              <caret line="222" column="17" selection-start-line="222" selection-start-column="17" selection-end-line="222" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#709#710#0" expanded="true" />
                 <element signature="e#745#746#0" expanded="true" />
+                <element signature="e#3002#3013#0" expanded="true" />
                 <element signature="e#3152#3153#0" expanded="true" />
                 <element signature="e#3176#3177#0" expanded="true" />
                 <element signature="e#5100#5101#0" expanded="true" />
@@ -70,7 +76,7 @@
                 <element signature="e#5472#5473#0" expanded="true" />
                 <element signature="e#5513#5514#0" expanded="true" />
                 <element signature="e#5542#5543#0" expanded="true" />
-                <marker date="1553958560621" expanded="true" signature="3291:3350" ph="..." />
+                <marker date="1553961032988" expanded="true" signature="3435:3494" ph="..." />
               </folding>
             </state>
           </provider>
@@ -173,7 +179,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553958652231" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553961036978" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -244,7 +250,7 @@
       <workItem from="1553409633293" duration="10943000" />
       <workItem from="1553487481925" duration="2392000" />
       <workItem from="1553605361633" duration="4459000" />
-      <workItem from="1553956849721" duration="1613000" />
+      <workItem from="1553956849721" duration="4078000" />
     </task>
     <task id="LOCAL-00001" summary="画出地方坦克">
       <created>1553419674739</created>
@@ -267,11 +273,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553701737922</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1。敌方tank自由移动&#10;2。敌方tank移动边界判断">
+      <created>1553958737111</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1553958737117</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36478000" />
+    <option name="totallyTimeSpent" value="38943000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -295,7 +308,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26760563" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28794992" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.42410016" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -365,7 +378,8 @@
     <MESSAGE value="画出地方坦克" />
     <MESSAGE value="1。可发射多颗子弹&#10;2。击中坦克的判断ing" />
     <MESSAGE value="子弹爆炸效果" />
-    <option name="LAST_COMMIT_MESSAGE" value="子弹爆炸效果" />
+    <MESSAGE value="1。敌方tank自由移动&#10;2。敌方tank移动边界判断" />
+    <option name="LAST_COMMIT_MESSAGE" value="1。敌方tank自由移动&#10;2。敌方tank移动边界判断" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -410,8 +424,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/class9/src/com/base/tankGame1/Tank0321.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+        <state relative-caret-position="72">
+          <caret line="86" column="20" lean-forward="true" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -420,12 +434,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/class9/src/com/base/tankGame1/merbers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="205" selection-start-line="205" selection-end-line="210" selection-end-column="13" />
+        <state relative-caret-position="243">
+          <caret line="222" column="17" selection-start-line="222" selection-start-column="17" selection-end-line="222" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#709#710#0" expanded="true" />
             <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#3002#3013#0" expanded="true" />
             <element signature="e#3152#3153#0" expanded="true" />
             <element signature="e#3176#3177#0" expanded="true" />
             <element signature="e#5100#5101#0" expanded="true" />
@@ -444,7 +459,7 @@
             <element signature="e#5472#5473#0" expanded="true" />
             <element signature="e#5513#5514#0" expanded="true" />
             <element signature="e#5542#5543#0" expanded="true" />
-            <marker date="1553958560621" expanded="true" signature="3291:3350" ph="..." />
+            <marker date="1553961032988" expanded="true" signature="3435:3494" ph="..." />
           </folding>
         </state>
       </provider>

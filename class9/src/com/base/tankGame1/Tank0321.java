@@ -93,6 +93,14 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
         for (int i = 0; i < ets.size(); i++) {
             EnemyTank et = ets.get(i);
             this.drawTank(et.getX(), et.getY(), g, et.getDirect(), 0);
+            for (int j = 0; j < et.enemyShots.size(); j++) {
+                EnemyShot enemyShot = et.enemyShots.get(j);
+                if (enemyShot.isLive) {
+                    this.drawShot(enemyShot.getX(), enemyShot.getY(), g, enemyShot.getDirect(), 1);
+                } else {
+                    et.enemyShots.remove(enemyShot);
+                }
+            }
         }
 
         // 画出炸弹

@@ -158,7 +158,11 @@ class Hero extends Tank {
  * 敌人的坦克
  */
 class EnemyTank extends Tank implements Runnable {
-    int straightTimes = 5;
+    // 坦克朝一个方向走的步数
+    private int straightTimes = 5;
+    // 坦克发出上一颗子弹到现在的时间
+    private int lastShotTime = 0;
+    Vector<EnemyShot>  enemyShots= new Vector<EnemyShot>();
     public EnemyTank(int x, int y) {
         super(x, y);
     }
@@ -210,11 +214,61 @@ class EnemyTank extends Tank implements Runnable {
                 this.straightTimes = (int) (Math.random() * 15 + 3);
             }
 
-            //
+            // 间隔1s，才1/3到概率去发射下一发子弹
+            this.lastShotTime += 40;
+            if (enemyShots.size() == 0) {
+                if (((int) (Math.random() * 10)) < 1) {
+                    this.lastShotTime = 0;
+                    this.shotEnemy();
+                }
+            } else {
+                if (this.lastShotTime % 1000 == 0) {
+                    if (((int) (Math.random() * 3)) < 1) {
+                        this.lastShotTime = 0;
+                        this.shotEnemy();
+                    }
+                }
+            }
+
             if (!isLive) {
                 break;
             }
         }
+    }
+
+    // 发射子弹
+    public void shotEnemy() {
+        int shotX = 0;
+        int shotY = 0;
+        // 最多5发子弹
+        if (this.enemyShots.size() >= 3) return;
+        switch (direct) {
+            // 上
+            case 0:
+                shotX = x + 10;
+                shotY = y;
+                break;
+            // 下
+            case 1:
+                shotX = x + 10;
+                shotY = y + 30;
+                break;
+            // 左
+            case 2:
+                shotX = x;
+                shotY = y + 10;
+                break;
+            // 右
+            case 3:
+                shotX = x + 30;
+                shotY = y + 10;
+                break;
+        }
+        EnemyShot enemyShot = new EnemyShot(shotX, shotY);
+        enemyShot.setDirect(direct);
+        Thread thread = new Thread(enemyShot);
+        thread.start();
+        enemyShots.add(enemyShot);
     }
 }
 
@@ -325,6 +379,16 @@ class Shot implements Runnable {
  */
 class HeroShot extends Shot {
     public HeroShot(int x, int y) {
+        super(x, y);
+        super.setSpeed(1);
+    }
+}
+
+/**
+ * 敌方子弹
+ */
+class EnemyShot extends Shot {
+    public EnemyShot(int x, int y) {
         super(x, y);
         super.setSpeed(1);
     }
