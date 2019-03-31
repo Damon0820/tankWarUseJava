@@ -13,6 +13,8 @@ class Tank {
 
     int x = 0;
     int y = 0;
+    int x2 = 0;
+    int y2 = 0;
     int speed = 2;
     int direct = 0;
     int color;
@@ -105,6 +107,37 @@ class Tank {
     public void setIsLive(Boolean live) {
         isLive = live;
     }
+
+    // 得到tank坐标x2
+    public int getX2() {
+        switch (direct) {
+            case 0:
+            case 1:
+                x2 = x + sizeX;
+                break;
+            case 2:
+            case 3:
+                x2 = x + sizeY;
+                break;
+        }
+        return x2;
+    }
+
+    public int getY2() {
+        switch (direct) {
+            case 0:
+            case 1:
+                y2 = y + sizeY;
+            break;
+            case 2:
+            case 3:
+                y2 = y + sizeX;
+            break;
+        }
+        return y2;
+    }
+
+
 }
 
 /**

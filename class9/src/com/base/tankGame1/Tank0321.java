@@ -64,10 +64,11 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
         super.paint(g);
         g.fillRect(0, 0, 400, 300);
         // 画我方tank
-        this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 1);
-
+        if (hero.isLive) {
+            this.drawTank(hero.getX(), hero.getY(), g, hero.getDirect(), 1);
+        }
+        // 画我方子弹
         for (int i = 0; i < hero.heroShots.size(); i++) {
-            // 画我方子弹
             HeroShot heroShot = hero.heroShots.get(i);
             if (heroShot.isLive) {
                 this.drawShot(heroShot.getX(), heroShot.getY(), g, heroShot.getDirect(), 1);
@@ -92,11 +93,77 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
         // 画敌方tank
         for (int i = 0; i < ets.size(); i++) {
             EnemyTank et = ets.get(i);
+            // 判断tank重叠
+//            for (int k = 0; k < ets.size(); k++) {
+//                EnemyTank et2 = ets.get(k);
+//                // 重叠，则改变方向
+//                if (this.tankOverlop(et, et2)) {
+//                    System.out.println("cd" + et.x + et.y);
+//                    System.out.println("cd2" + et2.x + et2.y);
+//                    // 同一条线上
+//                    if ((et.direct == 0 || et.direct == 1) && (et2.direct == 0 || et2.direct == 1)) {
+//                        if (et.direct == 0) {
+//                            et.setDirect(1);
+//                            et2.setDirect(0);
+//                        } else {
+//                            et.setDirect(0);
+//                            et2.setDirect(1);
+//                        }
+//
+//                    } else if ((et.direct == 2 || et.direct == 3) && (et2.direct == 2 || et2.direct == 3)) {
+//                        if (et.direct == 2) {
+//                            et.setDirect(3);
+//                            et2.setDirect(2);
+//                        } else {
+//                            et.setDirect(2);
+//                            et2.setDirect(3);
+//                        }
+//                    // 不同线上，垂直方向
+//                    } else  {
+//                        switch (et.direct) {
+//                            case 0:
+//                                et.setDirect(1);
+//                                break;
+//                            case 1:
+//                                et.setDirect(0);
+//                                break;
+//                            case 2:
+//                                et.setDirect(3);
+//                                break;
+//                            case 3:
+//                                et.setDirect(2);
+//                                break;
+//                        }
+//                        switch (et2.direct) {
+//                            case 0:
+//                                et2.setDirect(1);
+//                                break;
+//                            case 1:
+//                                et2.setDirect(0);
+//                                break;
+//                            case 2:
+//                                et2.setDirect(3);
+//                                break;
+//                            case 3:
+//                                et2.setDirect(2);
+//                                break;
+//                        }
+//                    }
+//                }
+//            }
             this.drawTank(et.getX(), et.getY(), g, et.getDirect(), 0);
+            // 画敌方子弹
             for (int j = 0; j < et.enemyShots.size(); j++) {
                 EnemyShot enemyShot = et.enemyShots.get(j);
                 if (enemyShot.isLive) {
                     this.drawShot(enemyShot.getX(), enemyShot.getY(), g, enemyShot.getDirect(), 1);
+                    Boolean isHit = this.hitTank(enemyShot, hero);
+                    if (isHit) {
+                        hero.setIsLive(false);
+                        enemyShot.setIsLive(false);
+                        System.out.println("我方tank挂了");
+                        this.bombs.add(new Bomb(hero.getX(), hero.getY()));
+                    }
                 } else {
                     et.enemyShots.remove(enemyShot);
                 }
@@ -151,6 +218,15 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
 //        System.out.println(shotX);
 //        System.out.println(shotX);
         if (tankX <= shotX && shotX <= tankX2 && tankY <= shotY && shotY <= tankY2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // 判断tank是否重叠
+    public Boolean tankOverlop(Tank tank1, Tank tank2) {
+        if (tank1.x <= tank2.getX2() && tank1.getX2() >= tank2.x && tank1.y <= tank2.getY2() && tank1.getY2() >= tank2.y) {
             return true;
         } else {
             return false;
