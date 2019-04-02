@@ -1,13 +1,9 @@
 package com.base.tankGame1;
 
-import javafx.scene.layout.Pane;
-import sun.awt.image.ToolkitImage;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.List;
 import java.util.Vector;
 
 public class Tank0321 extends JFrame {
@@ -26,6 +22,7 @@ public class Tank0321 extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
+
 }
 
 class MyPanel extends JPanel implements KeyListener, Runnable {
@@ -33,6 +30,10 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
     Hero hero = null;
     // 敌人坦克的初始数量
     int enSize = 3;
+    // 敌人总数量
+    int enemyTankTotal = 5;
+    // 我方总数量
+    int heroTotal = 1;
     // 敌人坦克的集合
     Vector<EnemyTank> ets = new Vector<EnemyTank>();
     // 子弹
@@ -62,6 +63,7 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+
         g.fillRect(0, 0, 400, 300);
         // 画我方tank
         if (hero.isLive) {
@@ -83,6 +85,18 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
                         heroShot.setIsLive(false);
                         this.ets.remove(enemyTank);
                         this.bombs.add(new Bomb(enemyTank.getX(), enemyTank.getY()));
+                        // 敌人复活
+                        if (enemyTankTotal > 0) {
+                            EnemyTank enemyTank1 = new EnemyTank(100, 20);
+                            enemyTank1.setDirect(1);
+                            Thread thread = new Thread(enemyTank1);
+                            thread.start();
+                            this.ets.add(enemyTank1);
+                            enemyTankTotal--;
+                        } else {
+                        // 敌人全死，胜利！！！
+                        }
+
                     }
                 }
             } else {
@@ -163,6 +177,15 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
                         enemyShot.setIsLive(false);
                         System.out.println("我方tank挂了");
                         this.bombs.add(new Bomb(hero.getX(), hero.getY()));
+                        // 我方复活
+                        if (heroTotal > 0) {
+                            hero.setIsLive(true);
+                            hero.setX(150);
+                            hero.setY(220);
+                            heroTotal--;
+                        } else {
+//                             我方没命了，失败！！！
+                        }
                     }
                 } else {
                     et.enemyShots.remove(enemyShot);
@@ -300,6 +323,7 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
         g.fillOval(x, y, 4, 4);
 
     }
+
 
     @Override
     public void keyTyped(KeyEvent e) {
