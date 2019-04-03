@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4085fa6c-94d2-43d9-9884-24fd7c3f1faa" name="Default Changelist" comment="">
+    <list default="true" id="4085fa6c-94d2-43d9-9884-24fd7c3f1faa" name="Default Changelist" comment="1. 敌方死后可复活5此，我方死后可复活1次">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/MyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/production/java/com/base/tankGame1/MyPanel.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +48,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="125">
-                <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+                <caret line="5" column="83" selection-start-line="5" selection-start-column="83" selection-end-line="5" selection-end-column="83" />
               </first_editor>
               <second_editor />
             </state>
@@ -224,7 +225,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554266416229" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554266616769" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -296,7 +297,7 @@
       <workItem from="1553487481925" duration="2392000" />
       <workItem from="1553605361633" duration="4459000" />
       <workItem from="1553956849721" duration="10224000" />
-      <workItem from="1554264372336" duration="1629000" />
+      <workItem from="1554264372336" duration="1829000" />
     </task>
     <task id="LOCAL-00001" summary="画出地方坦克">
       <created>1553419674739</created>
@@ -340,11 +341,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554182054978</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="1. 敌方死后可复活5此，我方死后可复活1次">
+      <created>1554266429246</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1554266429246</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50293000" />
+    <option name="totallyTimeSpent" value="50493000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -581,7 +589,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="125">
-            <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+            <caret line="5" column="83" selection-start-line="5" selection-start-column="83" selection-end-line="5" selection-end-column="83" />
           </first_editor>
           <second_editor />
         </state>
